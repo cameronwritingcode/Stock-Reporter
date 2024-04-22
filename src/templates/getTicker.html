@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block header %}
+    
+{% endblock %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% block content %}
+
+    <form method="post" action="{{ url_for('finance.getTicker') }}">
+        <textarea class="ticker" name="ticker" id="ticker">{{ request.form['ticker'] }}</textarea>
+        <input type="submit" name="Get Ticker" value="Get Ticker">
+        {% if stockInfo is defined %}
+            <h1>Price: ${{ stockInfo.fast_info.previous_close }} </h1>
+            <h2>{{ stockInfo.info['longName'] }}</h2>
+            <body class="graph">
+
+       
+                
+            {{ getFig( stockInfo, period_len, time_span ) | safe }}
+            
+            </body>
+        {% endif %}
+
+        <ul>
+            <input type="submit" name="All Time" value="All Time">
+            <input type="submit" name="5 years" value="5 years">
+
+            <input type="submit" name="1 year" value="1 year">
+            <input type="submit" name="1 month"value="1 month">
+            
+            <input type="submit" name="1 week" value="1 week">
+            <input type="submit" name="1 day" value="1 day">
+
+            <input type="submit" class="save" value="Save" formaction="{{ url_for('finance.save') }}">
+        </ul>
+        
+    </form>
+
+
+{% endblock %}

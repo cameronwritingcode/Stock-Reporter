@@ -1,0 +1,31 @@
+<!doctype html>
+<link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<title style="color:skyblue">{% block title %} STOCK REPORTER {% endblock %}</title>
+
+
+<nav>
+    <h1 class="headerText">Stock Reporter</h1>
+    <ul class="headerRight">
+        {% if g.user %}
+            <li><span>{{ g.user['username'] }}</span>
+            <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+            <li><a href="{{ url_for('finance.savedStocks') }}">Saved Stocks</a>
+        {% else %}
+            <li><a href="{{ url_for('auth.login') }}">Log In</a>
+            <li><a href="{{ url_for('auth.register') }}">Register</a>
+        {% endif %}
+        <li><a href="{{ url_for('finance.getTicker') }}">Home</a></li>
+    </ul>
+</nav>
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</section>
+

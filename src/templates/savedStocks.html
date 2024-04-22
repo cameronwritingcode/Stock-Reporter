@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block header %}
+    
+{% endblock %}
+
+
+
+{% block content %}
+   
+
+    <form style="margin: 10px" method="post">
+        {% for ticker in tickers %}
+            <div class="savedTickers">
+
+                <a href = "{{ url_for('finance.getTicker', ticker2=ticker) }}"> {{ ticker }} </a>
+            </div>
+        {% endfor %}
+
+      
+        
+    </form>
+
+
+{% endblock %}

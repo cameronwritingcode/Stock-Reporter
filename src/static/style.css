@@ -1,0 +1,22 @@
+html { font-family: Helvetica; background: #eee; padding: 1rem }
+nav { background: lightgray; display: flex; align-items: center; justify-content: center; padding: 0 0.5rem; white-space: nowrap; overflow: hidden; }
+nav h1 { flex: auto; margin: 0; }
+nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+nav ul li a, nav ul li span { display: block; padding: 0.5rem; }
+nav::before{
+    content: "";
+    flex: 2;
+}
+
+.headerText { color: #612AA9; font-size: xx-large; align-items: center; margin-left: auto; }
+.headerRight { justify-content: right; position: static; margin-left: auto; flex: 1; display: flex; }
+
+.content {  width: 100%; display: flex; align-items: center; justify-content: center; padding: 0 1rem 1 rem; }
+.content form { flex-direction: column; flex-basis: 100%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+
+.submit { font-family: Helvetica; border-radius: 10%; outline: black 5px; }
+.ticker { margin: 1rem 0.5rem; }
+
+.pageTitle { font-size: xx-large; font-weight: bold; margin-top: 20px; margin-bottom: 30px; }
+
+.savedTickers { margin: 5px;}
